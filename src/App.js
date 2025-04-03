@@ -1,9 +1,8 @@
-import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
   const handleClick = async () => {
-    await fetch("https://push-notification-backend-umber.vercel.app/send-notification", {
+    const response = await fetch("https://push-notification-backend-umber.vercel.app/send-notification", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -13,6 +12,12 @@ function App() {
         body: "This is notification body",
       }),
     });
+    const data = await response.json();
+    if (data.status) {
+      alert("Notification sent successfully!");
+    } else {
+      alert("Failed to send notification!");
+    }
   };
   return (
     <div className="App">
