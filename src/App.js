@@ -3,7 +3,7 @@ import "./App.css";
 
 function App() {
   const handleClick = async () => {
-    await fetch("http://localhost:7878/send-notification", {
+    await fetch("https://push-notification-backend-umber.vercel.app/send-notification", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
